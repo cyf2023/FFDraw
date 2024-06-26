@@ -104,7 +104,9 @@ class FFDWindowManager(WindowManager):
 
     def update(self):
         if super().update():
+            glfw.hide_window(self.draw_window.window)  # 隐藏窗口
             self.current_window = self.draw_window
+            glfw.hide_window(self.current_window.window)  # 隐藏窗口
             self.draw_window.update()
             self.current_window = None
             return True
